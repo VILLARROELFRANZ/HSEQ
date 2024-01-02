@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="lista-tarjetas-container">
+    <h2>Lista de Tarjetas HSEQ</h2>
+    <table class="tarjetas-table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Sitio</th>
+                <th>Número</th>
+                <th>Reportado por</th>
+                <th>Observación Abierta</th>
+                <th>Observación Cerrada</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarjeta in tarjetas %}
+            <tr>
+                <td>{{ tarjeta.fecha }}</td>
+                <td>{{ tarjeta.sitio }}</td>
+                <td>{{ tarjeta.numero }}</td>
+                <td>{{ tarjeta.nombre_reporta }}</td>
+                <td>{{ tarjeta.observacion_abierta }}</td>
+                <td>{{ tarjeta.observacion_cerrada }}</td>
+                <td>
+                    <a href="{% url 'detalle_tarjeta' pk=tarjeta.pk %}">Detalle</a> | 
+                    <a href="{% url 'editar_tarjeta' pk=tarjeta.pk %}">Editar</a> |
+                    <a href="{% url 'eliminar_tarjeta' pk=tarjeta.pk %}">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No hay tarjetas HSEQ registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .lista-tarjetas-container {
+        background-color: white;
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .tarjetas-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .tarjetas-table th, .tarjetas-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .tarjetas-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    .tarjetas-table a {
+        color: blue;
+        text-decoration: none;
+    }
+    .tarjetas-table a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+
+
+
+
+

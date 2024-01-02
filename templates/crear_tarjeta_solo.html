@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Tarjeta HSEQ</title>
+
+    <style>
+      .tarjeta-container {
+        width: 407px;
+        height: 1889px;
+        position: relative;
+        background: white;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid black;
+        font-family: "Inter", sans-serif;
+      }
+
+      .tarjeta-container img {
+        width: 120px;
+        height: 111px;
+        position: absolute;
+        top: 23px;
+        left: 16px;
+        border: 1px solid black;
+      }
+
+      .titulo-tarjeta {
+        position: absolute;
+        top: 26px;
+        left: 174px;
+        font-size: 24px;
+      }
+      .informacion-tarjeta {
+        position: absolute;
+        top: 77px;
+        left: 164px;
+        font-size: 12px;
+      }
+
+      .tarjeta-form {
+        position: absolute;
+        top: 150px;
+        left: 16px;
+        width: 373px;
+      }
+
+      .tarjeta-form label,
+      .tarjeta-form input,
+      .tarjeta-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: black;
+      }
+
+      .btn-submit {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn-submit:hover {
+        background-color: #45a049;
+      }
+
+      /* Aquí puedes añadir estilos adicionales según tus necesidades */
+    </style>
+  </head>
+  <body>
+    <div class="tarjeta-container">
+      <img src="/static/imagen/logotrs.jpg" alt="Logo HSEQ" />
+
+      <div class="titulo-tarjeta">TARJETA HSEQ</div>
+      <div class="informacion-tarjeta">
+        <p>Código: HSEQ-FOR-19</p>
+        <p>Versión: 4</p>
+        <p>Fecha: 02/11/22</p>
+      </div>
+      <form
+        action="{% url 'crear_tarjeta_publico' %}"
+        method="post"
+        class="tarjeta-form"
+      >
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn-submit">Enviar</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="detalle-tarjeta-container">
+    <h2>Detalle de Tarjeta HSEQ</h2>
+    <form method="post" class="tarjeta-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">Actualizar Tarjeta</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .detalle-tarjeta-container {
+        width: 407px;
+        background: white;
+        margin: 0 auto;
+        border: 1px solid black;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .tarjeta-form {
+        margin-top: 20px;
+    }
+    .btn-submit {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .btn-submit:hover {
+        background-color: #45a049;
+    }
+    /* Estilos para los campos del formulario */
+    .tarjeta-form label, .tarjeta-form input, .tarjeta-form textarea, .tarjeta-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+</style>
+{% endblock %}
+
+

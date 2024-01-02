@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aplicación HSEQ</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            background-color: #f0f0f0;
+            width: 250px;
+            height: 100vh;
+            padding: 20px 0;
+            box-sizing: border-box;
+            border-right: 2px solid #e0e0e0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .sidebar:hover {
+            width: 270px;
+            box-shadow: 4px 0 15px rgba(103, 146, 241, 0.8);
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar a {
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background-color: #cfbdc6;
+            border-radius: 10px;
+        }
+        .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: calc(250px);
+            background-color: #f0f0f0;
+            color: black;
+            border-top: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        footer:hover {
+            background-color: #cfbdc6;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="#">Estadísticas</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Administrar</a></li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="submenu-toggle">Tarjetas HSEQ</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'lista_tarjetas' %}">Ver Lista de Tarjetas</a></li>
+                        <li><a href="{% url 'crear_tarjeta' %}">Crear Tarjeta</a></li>
+                        <!-- Añadir aquí más opciones según tus vistas -->
+                    </ul>
+                </li>                
+                <li><a href="{% url 'signout' %}">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
+
+        {% block extra_css %}
+        <!-- Bloque para estilos específicos de otras plantillas -->
+        {% endblock %}
+
+    </div>
+    <footer>
+        <p>© 2023 Monsters Inc XD . Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuToggle = document.querySelector('.submenu-toggle');
+            menuToggle.onclick = function() {
+                var submenu = document.querySelector('.submenu');
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="tarjeta-container">
+    <img src="{% static '/imagen/logotrs.jpg' %}" alt="Logo HSEQ" class="logo-hseq">
+    <h1 class="titulo-tarjeta">TARJETA HSEQ</h1>
+    <div class="informacion-tarjeta">
+        <p>Código: HSEQ-FOR-19</p>
+        <p>Versión: 4</p>
+        <p>Fecha: 02/11/22</p>
+    </div>
+    <form method="post" class="tarjeta-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .tarjeta-container {
+        width: 407px;
+        height: 2089px;
+        position: relative;
+        background: white;
+        padding: 20px;
+        border: 1px solid black;
+        color: black; /* Asegurarse de que el texto sea negro */
+    }
+    .logo-hseq {
+        width: 120px;
+        height: 111px;
+        border: 1px solid black;
+        position: absolute;
+        top: 23px;
+        left: 16px;
+    }
+    .titulo-tarjeta {
+        position: absolute;
+        top: 26px;
+        left: 174px;
+        font-size: 24px;
+    }
+    .informacion-tarjeta {
+        position: absolute;
+        top: 77px;
+        left: 164px;
+        font-size: 12px;
+    }
+    .tarjeta-form {
+        position: absolute;
+        top: 150px;
+        left: 16px;
+        width: 373px;
+    }
+    .tarjeta-form label, .tarjeta-form input, .tarjeta-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: black; /* Texto de los campos del formulario */
+    }
+    .btn-submit {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .btn-submit:hover {
+        background-color: #45a049;
+    }
+    /* Aquí puedes añadir estilos adicionales para otros elementos específicos del diseño */
+</style>
+{% endblock %}
+
+
+
+
+
+
