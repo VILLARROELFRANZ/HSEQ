@@ -3,7 +3,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
-@login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -21,7 +20,6 @@ def signin(request):
         form = AuthenticationForm()
     return render(request, 'signin.html', {'form': form})
 
-@login_required
 def signout(request):
     logout(request)
     # Considera redirigir a la página de inicio de sesión después de cerrar sesión.
