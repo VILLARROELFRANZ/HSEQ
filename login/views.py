@@ -37,7 +37,7 @@ def register_request(request):
                 'Nueva Solicitud de Registro de Usuario',
                 'Detalles de la solicitud: ' + str(form.cleaned_data),
                 settings.DEFAULT_FROM_EMAIL,
-                ['villarroelfranz@gmail.com'],  # Correo del administrador
+                ['villarroelfranz1@gmail.com'],  # Correo del administrador
                 fail_silently=False,
             )
             return render(request, 'registration_request_sent.html')  # Plantilla de confirmación
