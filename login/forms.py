@@ -16,7 +16,7 @@ class UserRequestForm(forms.Form):
         # Aquí puedes agregar lógica adicional para validar el correo electrónico, si lo necesitas
         email = self.cleaned_data['email']
         # Ejemplo de validación (personalízalo según tus necesidades)
-        if "ejemplo.com" not in email:
+        if "villarroelfranz1@gmaicom" not in email:
             raise forms.ValidationError("Por favor, utiliza un correo electrónico válido.")
         return email
 
