@@ -77,17 +77,14 @@
 </head>
 <body>
     <div class="signin-container">
-        <img src= "" alt="{% static 'imagen/logotrs.jpg' %}" style="width: 120px; height: 111px;">
+        <img src="{% static 'imagen/logotrs.jpg' %}" alt="Logo" style="width: 120px; height: 111px;">
         <h2>Iniciar Sesión</h2>
         <form method="post" action="{% url 'signin' %}">
             {% csrf_token %}
-            <label for="id_username" class="form-label">Username:</label>
-            <input type="text" name="username" id="id_username" required class="form-input">
-            
-            <label for="id_password" class="form-label">Password:</label>
-            <input type="password" name="password" id="id_password" required class="form-input">
-            
+            {{ form.as_p }}
             <button type="submit" class="btn-submit">Entrar</button>
+            <!-- Agrega un enlace para la solicitud de registro de nuevo usuario -->
+            <p>¿No tienes una cuenta? <a href="{% url 'register_request' %}">Regístrate aquí</a></p>
         </form>
     </div>
 </body>
