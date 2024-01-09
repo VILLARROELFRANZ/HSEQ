@@ -3,54 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud Enviada</title>
+    <title>Iniciar Sesión</title>
+    {% load static %}
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background-color: #1E1E1E;
+            font-family: 'Inter', sans-serif;
         }
-        .container {
-            background-color: #fff;
+        .signin-container {
+            background-color: #3E3E3E;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
+            border: 1px solid #1C1C1C;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 350px;
         }
-        h1 {
-            color: #333;
+        .signin-container img {
+            margin-bottom: 20px;
         }
-        p {
-            color: #666;
+        .signin-container h2 {
+            color: #fff;
+            margin-bottom: 20px;
         }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
+        .form-input {
+            background-color: #fff;
+            border: 2px solid #fff;
             border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: calc(100% - 20px);
+            box-sizing: border-box;
         }
-        a:hover {
-            background-color: #0056b3;
+        .form-label {
+            color: #fff;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .btn-submit {hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            background-color: #3B9559;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+        .btn-submit:hover {
+            background-color: #347a46;
+        }
+        @media (max-width: 768px) {
+            .signin-container {
+                width: 80%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Solicitud de Registro Enviada</h1>
-        <p>Tu solicitud de registro ha sido enviada y está pendiente de revisión.</p>
-        <p>Se te notificará por correo electrónico una vez que tu solicitud haya sido procesada.</p>
-        <a href="{% url 'signin' %}">Volver a Iniciar Sesión</a>
+    <div class="signin-container">
+        <img src="{% static 'imagen/logotrs.jpg' %}" alt="Logo" style="width: 120px; height: 111px;">
+        <h2>Iniciar Sesión</h2>
+        <form method="post" action="{% url 'signin' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Entrar</button>
+        </form>
     </div>
 </body>
 </html>
+
 
 
 
