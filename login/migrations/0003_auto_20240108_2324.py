@@ -18,7 +18,7 @@ def create_predefined_users(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('login', '0002_useraccesslog_delete_userresquest'),  # Asegúrate de que esta sea la última migración
+        ('login', '0002_useraccesslog_delete_userrequest'),  # Asegúrate de que esta sea la última migración
     ]
 
     operations = [
