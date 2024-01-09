@@ -83,8 +83,6 @@
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn-submit">Entrar</button>
-            <!-- Agrega un enlace para la solicitud de registro de nuevo usuario -->
-            <p>¿No tienes una cuenta? <a href="{% url 'register_request' %}">Regístrate aquí</a></p>
         </form>
     </div>
 </body>
